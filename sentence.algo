@@ -1,0 +1,35 @@
+ALGORITHM sentenceAlgo
+VAR
+    sentence_length, word_count, vowel_count: INTEGER:=0; 
+    is_word : BOOLEAN:=false;
+BEGIN
+    WHILE (true) DO
+        character = read_character();
+        IF (character = ".") THEN
+           break;
+        END_IF
+
+        sentence_length := sentence_length + 1;
+
+        IF (character in ["a","e","i","o","u","A","E","I","O","U"]) THEN
+            vowel_count := vowel_count + 1;
+        END_IF
+
+        IF (character = " ") THEN
+            IF (is_word) THEN
+                word_count := word_count + 1;
+            END_IF
+            is_word := false;
+            ELSE
+            is_word := true;
+        END_IF
+    END_WHILE
+
+    IF (is_word) THEN
+        word_count := word_count + 1;
+    END_IF
+
+    print("Sentence Length: ", sentence_length);
+    print("word Count: ", word_count);
+    print("Vowel Count: ", vowel_count);
+END
